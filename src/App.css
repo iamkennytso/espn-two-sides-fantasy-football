@@ -1,38 +1,74 @@
-.App {
+.mainContainer {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.halfContainer {
+  height: auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.leftContainer {
+  background-color: yellow;
+
+}
+
+.rightContainer {
+  background-color: saddlebrown;
+}
+
+.teamName {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.accordianContainer {
+  width: 70%
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexApart {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.fullWidth {
+  width: 100%
+}
+.oneOfThreeSections {
+  width: 33%
+}
+
+.oneOfTwoSections {
+  width: 50%
+}
+
+.rightTextAlign {
+  text-align: right;
+}
+
+.centerTextAlign {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.boldFont {
+  font-weight: bold !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.redFont {
+  color: red;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.greenFont {
+  color: green
 }
