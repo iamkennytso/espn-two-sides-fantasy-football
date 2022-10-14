@@ -5,6 +5,19 @@ require('dotenv').config()
 
 const currentYear = 2022
 
+// run this once to get your team IDs
+// var getLeagueIdsConfig = {
+//   method: 'get',
+//   // url: `https://fantasy.espn.com/apis/v3/games/ffl/seasons/${currentYear}/segments/0/leagues/${process.env.LEAGUE_ID}?view=mMatchup`,
+//   url: `https://fantasy.espn.com/apis/v3/games/ffl/seasons/${currentYear}/segments/0/leagues/${process.env.LEAGUE_ID}`,
+
+//   // cookie needed if private league
+//   headers: {
+//     'Cookie': `SWID={${process.env.SWID}}; _dcf=1; espn_s2=${process.env.ESPN_S2}; region=ccpa`
+//   }
+// };
+// axios(getLeagueIdsConfig).then(response => console.log(response.data.teams))
+
 var config = {
   method: 'get',
   url: `https://fantasy.espn.com/apis/v3/games/ffl/seasons/${currentYear}/segments/0/leagues/${process.env.LEAGUE_ID}?view=mMatchup`,

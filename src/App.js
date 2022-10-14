@@ -14,11 +14,14 @@ const { team1Name, team2Name, teamIdToNames, teamOneIds, teamTwoIds } = hardcode
 const teamOneTotalPoints = formatPoints(data.teamOnePoints.total)
 const teamTwoTotalPoints = formatPoints(data.teamTwoPoints.total)
 
-const TeamPane = ({sideName, sideOneOrTwo, sideTeamIds}) => {
-  const sideTotalPoints = sideOneOrTwo === 'one' ? teamOneTotalPoints : teamTwoTotalPoints
-  const opposingTotalPoints = sideOneOrTwo === 'one' ? teamTwoTotalPoints : teamOneTotalPoints
-  const sidePoints = sideOneOrTwo === 'one' ? 'teamOnePoints' : 'teamTwoPoints'
-  const opposingSidePoints = sideOneOrTwo === 'one' ? 'teamTwoPoints' : 'teamOnePoints'
+const TeamPane = ({sideOneOrTwo}) => {
+  const isSideOne =  sideOneOrTwo === 'one'
+  const sideName = isSideOne ? team1Name : team2Name
+  const sideTeamIds = isSideOne ? teamOneIds : teamTwoIds
+  const sideTotalPoints = isSideOne ? teamOneTotalPoints : teamTwoTotalPoints
+  const opposingTotalPoints = isSideOne ? teamTwoTotalPoints : teamOneTotalPoints
+  const sidePoints = isSideOne ? 'teamOnePoints' : 'teamTwoPoints'
+  const opposingSidePoints = isSideOne ? 'teamTwoPoints' : 'teamOnePoints'
 
   return <>
     <Typography variant="h2">{sideName}</Typography>
@@ -97,10 +100,10 @@ const TeamPane = ({sideName, sideOneOrTwo, sideTeamIds}) => {
 function App() {
   return <div className='mainContainer'>
     <div className='leftContainer halfContainer'>
-      <TeamPane sideName={team1Name} sideOneOrTwo='one' sideTeamIds={teamOneIds} />
+      <TeamPane sideOneOrTwo='one' />
     </div>
     <div className='rightContainer halfContainer'>
-      <TeamPane sideName={team2Name} sideOneOrTwo='two' sideTeamIds={teamTwoIds} />
+      <TeamPane sideOneOrTwo='two' />
     </div>
   </div>
 }
