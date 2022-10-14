@@ -27,3 +27,4 @@ yarn-error.log*
 firebase.json
 /src/hardcode.json
 /public/index.html
+/src/data.json
