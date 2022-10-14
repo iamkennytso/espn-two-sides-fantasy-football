@@ -25,3 +25,5 @@ yarn-error.log*
 .env
 .firebaserc
 firebase.json
+src/hardcode.json
+index.html
