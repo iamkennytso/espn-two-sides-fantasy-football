@@ -34,8 +34,9 @@ const TeamPane = ({sideOneOrTwo}) => {
           expandIcon={<ExpandMoreIcon />}
         >
           <div className='fullWidth'>
-            <div>
+            <div className='flexApart'>
               {teamName}
+              <div className='boldFont'>{data[teamName].wins}-{data[teamName].losses}</div>
             </div>
             <div className='rightTextAlign'>
               {formatPoints(data[teamName].total)}

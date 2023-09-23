@@ -3,7 +3,7 @@ const fs = require('fs');
 const { teamIds, teamOneIds, teamIdToNames } = require('./hardcode');
 require('dotenv').config()
 
-const currentYear = 2022
+const currentYear = 2023
 
 // run this once to get your team IDs
 // var getLeagueIdsConfig = {
@@ -28,7 +28,7 @@ var config = {
 };
 
 const teamsData = teamIds.reduce((accu, team) => {
-  accu[teamIdToNames[team]] = { scores: [], teamOne: teamOneIds.includes(team), total: 0 }
+  accu[teamIdToNames[team]] = { scores: [], teamOne: teamOneIds.includes(team), total: 0, wins: 0, losses: 0 }
   return accu
 }, {})
 const teamOnePoints = { scores: [], total: 0 }
@@ -37,7 +37,7 @@ const teamTwoPoints = { scores: [], total: 0 }
 axios(config)
   .then(function (response) {
     for (let game of response.data.schedule) {
-      const { away, home, matchupPeriodId } = game;
+      const { away, home, matchupPeriodId, winner } = game;
       const { teamId: awayId, totalPoints: awayPoints } = away
       const { teamId: homeId, totalPoints: homePoints } = home
       if (awayPoints) {
@@ -71,6 +71,14 @@ axios(config)
           ? teamTwoPoints.scores[matchupPeriodId - 1] += homePoints
           : teamTwoPoints.scores[matchupPeriodId - 1] = homePoints
         teamTwoPoints.total += homePoints
+      }
+      
+      if (winner === 'AWAY') {
+        teamsData[teamIdToNames[awayId]].wins++
+        teamsData[teamIdToNames[homeId]].losses++
+      } else if (winner === 'HOME') {
+        teamsData[teamIdToNames[homeId]].wins++
+        teamsData[teamIdToNames[awayId]].losses++
       }
     }
 

@@ -1,20 +1,20 @@
 {
   "teamIdToNames": {
-    "1": "BS",
-    "2": "B",
-    "3": "Al",
-    "4": "VO",
+    "1": "BAPS",
+    "2": "Ben",
+    "3": "Abel",
+    "4": "VUDO",
     "5": "QC",
-    "6": "TO",
-    "7": "JN",
-    "8": "Vh",
+    "6": "TSO",
+    "7": "JOHN",
+    "8": "Vish",
     "10": ".",
     "12": "AM",
     "13": "WV",
-    "14": "CU"
+    "14": "CHAU"
   },
-  "team1Name": "Team One",
-  "team2Name": "Team Two",
+  "team1Name": "Harolds",
+  "team2Name": "Kumars",
   "teamIds": [
     1,
     2,
